@@ -1,7 +1,7 @@
 
 class Worker
   
-  period: 60000
+  period: 5000
   
   constructor: ({@job, period}={}) ->
     throw new Error('must provide job') unless @job?
