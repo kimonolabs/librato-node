@@ -27,6 +27,7 @@
   },
   "scripts": {
     "install": "coffee -c -m -o lib src",
+    "pre-test": "coffee -c -m -o lib src",
     "test": "mocha"
   },
   "bugs": {

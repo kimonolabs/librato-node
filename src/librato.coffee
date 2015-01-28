@@ -18,6 +18,9 @@ librato.increment = (name, value = 1) ->
   name = sanitize_name(name)
   collector.increment "#{config.prefix ? ''}#{name}", value
 
+librato.track = (name, value, source) ->
+  collector.track "#{config.prefix ? ''}#{name} ", value, source
+
 librato.timing = (name, valueMs) ->
   name = sanitize_name(name)
   collector.timing "#{config.prefix ? ''}#{name}", valueMs
@@ -33,8 +36,9 @@ librato.stop = ->
     
 librato.flush = ->
   gauges = []
-  collector.flushTo gauges
-  measurement.source = config.source for measurement in gauges
+  collector.flushToWithSource gauges
+  #measurement.source = config.source for measurement in gauges
+  console.log(gauges)
   if gauges.length
     client.send {gauges}, (err) ->
       librato.emit 'error', err if err?

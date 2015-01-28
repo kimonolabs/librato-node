@@ -10,12 +10,18 @@ class Collector
   increment: (args...) ->
     @counters.increment(args...)
 
+  track: (args...) ->
+    @counters.track(args...)
+
   timing: (args...) ->
     @aggregate.timing(args...)
 
   flushTo: (queue) ->
     @counters.flushTo(queue)
     @aggregate.flushTo(queue)
+
+  flushToWithSource: (queue) ->
+    @counters.flushToWithSource(queue)
 
 module.exports = Collector
 
