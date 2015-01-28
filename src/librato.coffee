@@ -19,6 +19,7 @@ librato.increment = (name, value = 1) ->
   collector.increment "#{config.prefix ? ''}#{name}", value
 
 librato.track = (name, value, source) ->
+  name = sanitize_name(name)
   collector.track "#{config.prefix ? ''}#{name}", value, source
 
 librato.timing = (name, valueMs) ->
