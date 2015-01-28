@@ -17,9 +17,6 @@ describe 'librato', ->
       names = _(args[0].gauges).pluck('name').value()
       values = _(args[0].gauges).pluck('value').value()
       sources = _(args[0].gauges).pluck('source').value()
-      console.log(values)
-      console.log(names)
-      console.log(sources)
       expect(names).to.contain 'messages'
       expect(values).to.contain 2  
       expect(sources).to.contain 'testinggg'
