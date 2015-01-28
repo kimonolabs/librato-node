@@ -26,7 +26,15 @@
     "replay": ">=1.12.0 <2.0.0"
   },
   "scripts": {
-    "pretest": "./node_modules/.bin/coffee -c -m -o lib src",
-    "test": "./node_modules/.bin/mocha"
-  }
+    "pretest": "coffee -c -m -o lib src",
+    "test": "mocha"
+  },
+  "bugs": {
+    "url": "https://github.com/kimonolabs/librato-node/issues"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC"
 }
